@@ -1,4 +1,4 @@
-import React { Component } from 'react';
+import React, { Component } from 'react';
 import './Friends.css';
 
 export default class Header extends Component {
