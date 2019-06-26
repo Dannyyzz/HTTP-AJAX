@@ -15,16 +15,20 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:5000/friends")
-    .then( res => this.setState({data: res.data}))
-    .catch( err => console.log(err))
+    axios
+      .get("http://localhost:5000/friends")
+      .then(res => this.setState({ data: res.data }))
+      .catch(err => console.log(err));
   }
 
   render() {
     return (
       <div className="App">
         <Header />
-        <Route path="/" render={props => <FriendsDisplay {...props} data={this.state.data}/>}/>
+        <Route
+          path="/"
+          render={props => <FriendsDisplay {...props} data={this.state.data} />}
+        />
         <FriendsForm />
       </div>
     );
