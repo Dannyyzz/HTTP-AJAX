@@ -105,7 +105,7 @@ class App extends Component {
         <Header />
         {/* <FriendForm addFriend={this.addFriend} handleChanges={this.handleChanges} /> */}
         <Route path="/" render={ props => <FriendsDisplay {...props} deleteFriend={this.deleteFriend} data={this.state.data}/>}/>	        
-        <Route path="/home" render={ props => <FriendForm {...props} data={this.state.data} newFriend={this.state.newFriend} addFriend={this.addFriend} handleChanges={this.handleChanges} />}/>
+        <Route path="/home" render={ props => <FriendsForm {...props} data={this.state.data} newFriend={this.state.newFriend} addFriend={this.addFriend} handleChanges={this.handleChanges} />}/>
         <Route path="/home/friends" render={ props => <FriendsDisplay {...props} deleteFriend={this.deleteFriend} data={this.state.data} newFriend={this.state.newFriend}/>}/>
         <Route exact path='/update/:friendId' render={props => <FriendsUpdateForm {...props} updateFriend={this.updateFriend} data={this.state.data}/>} />
       </div>
