@@ -15,6 +15,7 @@ export default class FriendsDisplay extends Component {
             <h1>{friend.name}</h1>
             <p>Age: {friend.age}</p>
             <p>Email: {friend.email}</p>
+            <button>Update Friend</button>
           </div>
         ))}
       </div>
