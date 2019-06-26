@@ -9,7 +9,7 @@ export default class FriendForm extends Component {
           <div>
             <input className="input" type="text" placeholder="name" />
             <input className="input" type="text" placeholder="age" />
-            <input className="input" type="text" placeholder="email" />
+            <input className="input" type="email" placeholder="email" />
           </div>
           <div>
             <button>Add Friend</button>
