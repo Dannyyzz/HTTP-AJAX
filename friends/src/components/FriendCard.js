@@ -8,7 +8,6 @@ import axios from 'axios';
     constructor(props) {
         super(props);
     }
-
    render() {
     return (
         <div className="list-group-item">
