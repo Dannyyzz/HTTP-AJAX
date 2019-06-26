@@ -11,12 +11,12 @@ export default class FriendsDisplay extends Component {
     return (
       <div className="friends-wrapper">
         {this.props.data.map(friend => (
-          <div className="friend-card">
+          <form onSubmit={this.props.deleteFriend} className="friend-card">
             <h1>{friend.name}</h1>
             <p>Age: {friend.age}</p>
             <p>Email: {friend.email}</p>
             <button>Update Friend</button>
-          </div>
+          </form>
         ))}
       </div>
     );
