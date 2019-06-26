@@ -13,15 +13,22 @@ export default class FriendForm extends Component {
           <div>
             <input
               onChange={this.props.handleChanges}
-              id="name"
-              className="input"
+              value={this.props.newFriend.name}
+              name="name"
               type="text"
               placeholder="Name"
             />
-            <input id="age" className="input" type="text" placeholder="Age" />
             <input
-              id="email"
-              className="input"
+             onChange={this.props.handleChanges} 
+             value={this.props.newFriend.age} 
+             name="age" 
+             type="text" 
+             placeholder="Age" 
+             />
+            <input
+              onChange={this.props.handleChanges}
+              value={this.props.newFriend.email} 
+              name="email"
               type="email"
               placeholder="Email"
             />

@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
     constructor(props) {
         super(props);
     }
-    
+
     render() {
         const friendId = this.props.match.params.friendId;
         const friend = this.props.data.find( friend => friendId === `${friend.id}`)
         console.log(this.props.data)
         return (
         <div className="form-wrapper">
-            <form onSubmit={this.props.updateFriend} className="form-wrapper">
+            <form onSubmit={e => this.props.updateFriend(e, friendId)} className="form-wrapper">
                 <div>
                     <input id="name"  type="text" placeholder={friend.name}/>
                     <input id="age"  type="text" placeholder={friend.age}/>

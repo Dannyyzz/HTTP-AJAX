@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import FriendCard from "./FriendCard";
 import "./Friends.css";
 
 export default class FriendsDisplay extends Component {
@@ -12,15 +12,8 @@ export default class FriendsDisplay extends Component {
     return (
       <div className="friends-wrapper">
         {this.props.data.map(friend => (
-          <form onSubmit={this.props.deleteFriend} className="friend-card">
-            <h1>{friend.name}</h1>
-            <p>Age: {friend.age}</p>
-            <p>Email: {friend.email}</p>
-            <div>
-            <Link to={`/update/${friend.id}`}>Update Friend</Link>
-            <button>Delete Friend</button>
-            </div>
-          </form>
+          <FriendCard friend={friend} newFriend={this.props.newFriend} deleteFriend={this.props.deleteFriend} />
+          
         ))}
       </div>
     );
