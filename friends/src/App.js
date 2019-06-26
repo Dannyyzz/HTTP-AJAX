@@ -12,9 +12,11 @@ class App extends Component {
     super();
     this.state = {
       data: [],
+      newFriend: {
       name: "",
-      age: "",
+      age: null,
       email: "",
+      }
     };
   }
 
@@ -24,33 +26,41 @@ class App extends Component {
     .catch( err => console.log(err))
   }
 
+  handleChanges = e => {
+    e.persist();
+    this.setState({
+          newFriend: {
+            ...this.state.newFriend,
+            [e.target.name]: e.target.value,
+          }
+      }
+    )
+  }
+
   addFriend = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/friends', {
-      name: (e.target.children[0].children[0].value),
-      age: (e.target.children[0].children[1].value),
-      email: (e.target.children[0].children[2].value),})
-      .then( res => {
-        this.setState ({
-          data: res.data
-        })
+    axios
+      .post("http://localhost:5000/friends", { ...this.state.newFriend })
+
+      .then(res => {
+        this.setState({
+          data: res.data,
+          newFriend: {
+            id: "",
+            name: "",
+            age: "",
+            email: ""
+          }
+        });
       })
-      .catch(function (error) {
+      .catch(function(error) {
         console.log(error);
       });
-
-      e.target.children[0].children[0].value = '';
-      e.target.children[0].children[1].value = '';
-      e.target.children[0].children[2].value = '';
     }
 
     deleteFriend = (e) => {
       e.preventDefault();
-      console.log(e.target.children[0].innerText)
-      console.log(e.target.children[1].innerText)
-      console.log(e.target.children[2].innerText)
-
-      axios.delete(`http://localhost:5000/friends/${e.target.children[3].innerText}`,)
+      axios.delete(`http://localhost:5000/friends/${friendId}`,)
 
         .then( res => {
           this.setState({
@@ -87,10 +97,6 @@ class App extends Component {
       .catch(function (error) {
         console.log(error);
       });
-  
-       e.target.children[0].children[0].value = '';
-      e.target.children[0].children[1].value = '';
-      e.target.children[0].children[2].value = '';
     }
 
   render() {
@@ -99,8 +105,8 @@ class App extends Component {
         <Header />
         {/* <FriendForm addFriend={this.addFriend} handleChanges={this.handleChanges} /> */}
         <Route path="/" render={ props => <FriendsDisplay {...props} deleteFriend={this.deleteFriend} data={this.state.data}/>}/>	        
-        <Route path="/home" render={ props => <FriendsForm {...props} addFriend={this.addFriend} handleChanges={this.handleChanges} />}/>
-        <Route path="/home/friends" render={ props => <FriendsDisplay {...props} deleteFriend={this.deleteFriend} data={this.state.data}/>}/>
+        <Route path="/home" render={ props => <FriendForm {...props} data={this.state.data} newFriend={this.state.newFriend} addFriend={this.addFriend} handleChanges={this.handleChanges} />}/>
+        <Route path="/home/friends" render={ props => <FriendsDisplay {...props} deleteFriend={this.deleteFriend} data={this.state.data} newFriend={this.state.newFriend}/>}/>
         <Route exact path='/update/:friendId' render={props => <FriendsUpdateForm {...props} updateFriend={this.updateFriend} data={this.state.data}/>} />
       </div>
     );
