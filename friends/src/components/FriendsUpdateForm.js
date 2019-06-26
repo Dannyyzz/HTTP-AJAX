@@ -1,22 +1,17 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
  export default class FriendsUpdateForm extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const friendId = this.props.match.params.friendId;
         const friend = this.props.data.find( friend => friendId === `${friend.id}`)
-        console.log(this.props.data)
+        console.log(this.props.newFriend)
         return (
         <div className="form-wrapper">
             <form onSubmit={e => this.props.updateFriend(e, friendId)} className="form-wrapper">
                 <div>
-                    <input id="name"  type="text" placeholder={friend.name}/>
-                    <input id="age"  type="text" placeholder={friend.age}/>
-                    <input id="email"  type="email" placeholder={friend.email}/>
+                    <input onChange={this.props.handleChanges} name="name"  type="text" placeholder={friend.name} value={this.props.newFriend.name}/>
+                    <input onChange={this.props.handleChanges} name="age"  type="text" placeholder={friend.age} value={this.props.newFriend.age}/>
+                    <input onChange={this.props.handleChanges} name="email"  type="email" placeholder={friend.email} value={this.props.newFriend.email}/>
                 </div>
                 <div>
                 <button>Update Friend</button>

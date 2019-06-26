@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 import "./Friends.css";
 
 export default class FriendForm extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div className="form-wrapper">
