@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import "./Friends.css";
 
 export default class Header extends Component {
@@ -6,6 +7,7 @@ export default class Header extends Component {
     return (
       <div className="Header">
         <h1>Friend List App</h1>
+        <Link to="/home">Home</Link>
       </div>
     );
   }

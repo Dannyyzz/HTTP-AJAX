@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import "./Friends.css";
 
 export default class FriendForm extends Component {
@@ -29,6 +30,8 @@ export default class FriendForm extends Component {
             <button>Add Friend</button>
           </div>
         </form>
+        <Link to="/home/friends"> View Friends </Link>
+        <Link to="/home"> Hide Friends </Link>
       </div>
     );
   }
