@@ -25,10 +25,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <Route
-          path="/"
-          render={props => <FriendsDisplay {...props} data={this.state.data} />}
-        />
+        <Route path="/" render={props => <FriendsDisplay {...props} data={this.state.data} />}/>
         <FriendsForm />
       </div>
     );
