@@ -1,7 +1,7 @@
-import React { Component } from 'react';
+import React, { Component } from 'react';
 import './Friends.css';
 
-export default class FriendsDisplay extend Component {
+export default class FriendsDisplay extends Component {
     constructor(props) {
         super(props);
     }
