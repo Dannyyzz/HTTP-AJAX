@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
     constructor(props) {
         super(props);
     }
-    
     render() {
         const friendId = this.props.match.params.friendId;
         const friend = this.props.data.find( friend => friendId === `${friend.id}`)
